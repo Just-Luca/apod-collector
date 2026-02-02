@@ -1,16 +1,41 @@
 import os
-import datetime
+from datetime import datetime, timedelta, date
 import requests
 
 # --- Configuration ---
 # Insert your API key here. You can get one for free at https://api.nasa.gov/
 API_KEY = "your_key"
 
+# --- Get Start Date Function ---
+safe_date = date(2000, 1, 1)
+
+def get_start_date(dir_path):
+
+    if not os.path.exists(dir_path):
+        return safe_date
+    
+    date_ar = []
+    for f in os.listdir(dir_path):
+        if f.endswith(('.gif', '.png')):
+            try:
+                # Rimuove sia .gif che .png
+                nome = f.replace('.gif', '').replace('.png', '')
+                data = datetime.strptime(nome, '%Y-%m-%d')
+                date_ar.append(data)
+            except ValueError:
+                continue
+
+    if max(date_ar).date() == date.today():
+        return max(date_ar)
+    
+    else:
+        return max(date_ar) + timedelta(days=1) if date_ar else safe_date
+
 # Folder where images will be saved
 SAVE_DIR = "your_path"
 
 # --- Date calculation ---
-start_date = date(2025, 12, 18)    # custom manually inserted date
+start_date = get_start_date(SAVE_DIR)
 end_date = date.today()
 
 # Format dates for the API
