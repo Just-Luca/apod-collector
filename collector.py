@@ -20,7 +20,7 @@ end_date_str = end_date.strftime('%Y-%m-%d')
 # --- API request preparation ---
 url = "https://api.nasa.gov/planetary/apod"
 params = {
-    'api_key': your_key,
+    'api_key': API_KEY,
     'start_date': start_date_str,
     'end_date': end_date_str
 }
