@@ -4,14 +4,14 @@ import requests
 
 # --- Configuration ---
 # Insert your API key here. You can get one for free at https://api.nasa.gov/
-API_KEY = "DEMO_KEY"
+API_KEY = "your_key"
+
 # Folder where images will be saved
-SAVE_DIR = "nasa_apod_images"
+SAVE_DIR = "your_path"
 
 # --- Date calculation ---
-years = 5
-end_date = datetime.date.today()
-start_date = end_date - datetime.timedelta(days=years * 365)
+start_date = date(2025, 12, 18)    # custom manually inserted date
+end_date = date.today()
 
 # Format dates for the API
 start_date_str = start_date.strftime('%Y-%m-%d')
@@ -20,7 +20,7 @@ end_date_str = end_date.strftime('%Y-%m-%d')
 # --- API request preparation ---
 url = "https://api.nasa.gov/planetary/apod"
 params = {
-    'api_key': API_KEY,
+    'api_key': your_key,
     'start_date': start_date_str,
     'end_date': end_date_str
 }
@@ -44,9 +44,8 @@ try:
     for record in data:
         if record.get('media_type') == 'image':
             image_url = record.get('url')
-            image_title = record.get('title').replace(" ", "_").replace("/", "_")
             image_date = record.get('date')
-            file_name = f"{image_date}_{image_title}.jpg"
+            file_name = f"{image_date}.gif"
             file_path = os.path.join(SAVE_DIR, file_name)
 
             print(f"Downloading: {file_name}")
