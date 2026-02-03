@@ -1,3 +1,25 @@
-# APOD-Collector
-APOD Collector (collector.py) is a Python script that downloads and archives images from NASA’s Astronomy Picture of the Day (APOD) using the official NASA API.  It allows you to fetch all APOD images over a configurable date range and save them locally.
-By default, thanks to utils.get_start_date() function, it starts downloading images from your last saved one. If it's your FIRST download, it falls back to a "safe" date: constants.safe_date = date(2000, 1, 1). Of course you can manually modify the starting (and ending) date (e.g.: start_date = date(1995, 6, 16)).
+# 🌌 APOD-Collector
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Just-Luca/APOD-Collector) 
+![GitHub contributors](https://img.shields.io/github/contributors/Just-Luca/APOD-Collector) 
+![GitHub stars](https://img.shields.io/github/stars/Just-Luca/APOD-Collector?style=social) 
+![GitHub license](https://img.shields.io/github/license/Just-Luca/APOD-Collector) 
+
+
+**APOD Collector** (`collector.py`) is a Python script that downloads and archives images from NASA’s [Astronomy Picture of the Day (APOD)](https://apod.nasa.gov/apod/astropix.html) using the official NASA API. It fetches all APOD images over a configurable date range and saves them locally.  
+
+By default, the script automatically resumes from the last saved image using `utils.get_start_date()`. If it’s your first download, it safely starts from `constants.safe_date = date(2000, 1, 1)`. You can also manually specify the starting (and ending) date, e.g.:  
+
+```python
+start_date = date(1995, 6, 16)
+```
+
+## ⚡ Features
+
+![Features](https://img.shields.io/badge/Features-4-brightgreen)
+
+- ✅ Download APOD images automatically via NASA API  
+- ✅ Resume downloads from last saved image  
+- ✅ Configurable date ranges  
+- ✅ Organizes images locally with consistent naming
+
