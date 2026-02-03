@@ -1,0 +1,3 @@
+you should create here a .env file with your personal APOD api key, like that:
+
+apod_key = your_personal_key
