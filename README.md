@@ -22,4 +22,13 @@ start_date = date(1995, 6, 16)
 - ✅ Resume downloads from last saved image  
 - ✅ Configurable date ranges  
 - ✅ Organizes images locally with consistent naming
+  
 
+## 🛠 Installation & Dependencies
+
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+
+Make sure you have **Python 3.7+** installed. Then, install dependencies with:
+
+```bash
+pip install -r requirements.txt
