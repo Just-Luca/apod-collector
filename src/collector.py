@@ -2,6 +2,9 @@ import constants as cnts
 from datetime import date
 from utils import get_start_date, api_request_and_download
 
+# First time? Maybe you want to start downloading from the very first APOD:
+# start_date = date(1995, 6, 16)
+
 start_date = get_start_date(cnts.SAVE_DIR)
 end_date = date.today()
 
